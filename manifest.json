@@ -1,0 +1,20 @@
+{
+  "name": "movetabs",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "description": "Move highlighted tabs to another window",
+	"permissions": [
+		"tabs"
+	],
+	"icons": {
+		"48": "48.png"
+	},
+	"background": {
+		"scripts": ["background.js"]
+	},
+	"browser_action": {
+		"browser_style": true,
+		"default_icon": "32.png",
+		"default_title": "Select tabs to move"
+	}
+}
