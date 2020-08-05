@@ -1,6 +1,6 @@
 {
-  "name": "movetabs",
-  "version": "1.0.0",
+  "name": "easymovetabs",
+  "version": "1.0.1",
   "manifest_version": 2,
   "description": "Move highlighted tabs to another window",
 	"permissions": [
