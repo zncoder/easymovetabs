@@ -29,10 +29,6 @@ async function moveTabs() {
   }
   
   let tabs = await queryTabs({highlighted: true, windowId: src})
-  if (tabs.length === 1) {
-    // move all tabs if none other than the active one is highlighted
-    tabs = await queryTabs({windowId: src})
-  }
   let ids = tabs.map(x => x.id)
   let dst = await currentWin()
   chrome.tabs.move(ids, {windowId: dst, index: -1})
