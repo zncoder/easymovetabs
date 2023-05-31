@@ -48,7 +48,7 @@ async function moveTabs() {
   if (tabWin === 0 && wins.length > 2) {
     return false
   }
-  
+
   let src = tabWin
   tabWin = 0
   chrome.browserAction.setBadgeText({})
@@ -56,7 +56,7 @@ async function moveTabs() {
   if (src === 0) {
     src = cur
   }
-  
+
   let dst = 0
   if (src === cur) {
     if (wins.length < 2) {
@@ -67,7 +67,7 @@ async function moveTabs() {
       dst = 0
     }
   } else {
-     dst = cur 
+     dst = cur
   }
 
   let tabs = await queryTabs({highlighted: true, windowId: src})
@@ -78,7 +78,7 @@ async function moveTabs() {
     tids.shift()
   }
   if (tids.length > 0) {
-    chrome.tabs.move(tids, {windowId: dst, index: -1})
+    chrome.tabs.move(tids, {windowId: dst, index: 0})
   }
   chrome.tabs.update(active.id, {active: true})
   chrome.windows.update(dst, {focused: true})
