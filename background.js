@@ -51,7 +51,7 @@ async function moveTabs() {
 
   let src = tabWin
   tabWin = 0
-  chrome.browserAction.setBadgeText({})
+  chrome.browserAction.setBadgeText({text: ''})
   let cur = await currentWin()
   if (src === 0) {
     src = cur
@@ -78,7 +78,8 @@ async function moveTabs() {
     tids.shift()
   }
   if (tids.length > 0) {
-    chrome.tabs.move(tids, {windowId: dst, index: 0})
+    let pinned = await queryTabs({pinned: true, windowId: dst})
+    chrome.tabs.move(tids, {windowId: dst, index: pinned.length})
   }
   chrome.tabs.update(active.id, {active: true})
   chrome.windows.update(dst, {focused: true})
