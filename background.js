@@ -13,6 +13,7 @@ async function handleMoveTabs() {
 		await moveOrSetTabWin()
 	} else {
 		await moveFromTabWin()
+		tabWin = 0
 		await browser.browserAction.setBadgeText({text: ""})
 	}
 }
