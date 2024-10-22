@@ -1,9 +1,10 @@
 {
-  "name": "easymovetabs",
-  "version": "1.7.0",
-  "manifest_version": 3,
-  "description": "Move highlighted tabs to another window",
+	"name": "easymovetabs",
+	"version": "1.8.1",
+	"manifest_version": 3,
+	"description": "Move highlighted tabs to another window",
 	"permissions": [
+		"contextMenus",
 		"tabs"
 	],
 	"icons": {
