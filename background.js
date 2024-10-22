@@ -13,6 +13,8 @@ async function handleMoveTabs() {
 		await moveOrSetTabWin()
 	} else {
 		await moveFromTabWin()
+		tabWin = 0
+		await browser.browserAction.setBadgeText({text: ""})
 	}
 }
 
@@ -31,7 +33,7 @@ async function moveTabToAnother(wins) {
 	let cur = await browser.windows.getCurrent({})
 	let other = cur.id === wins[0].id ? wins[1] : wins[0]
 	let [tab] = await browser.tabs.query({active: true, currentWindow: true})
-	await browser.tabs.move(tab.id, {windowId: other.id, index: -1})
+	await browser.tabs.move(tab.id, {windowId: other.id, index: 0})
 }
 
 async function moveTabToNew() {
@@ -42,7 +44,7 @@ async function moveTabToNew() {
 async function moveFromTabWin() {
 	let [tab] = await browser.tabs.query({active: true, windowId: tabWin})
 	let cur = await browser.windows.getCurrent({})
-	await browser.tabs.move(tab.id, {windowId: cur.id, index: -1})
+	await browser.tabs.move(tab.id, {windowId: cur.id, index: 0})
 }
 
 async function visibleWindows() {
